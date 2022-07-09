@@ -10,7 +10,9 @@
 </head>
 <body class="overflow-x-hidden bg-[#f6faff]">
     <div id="app">
-        <nav class="nav mb-5 md:m-0">
+        <div class="GraySpace hidden" id="GraySpace"></div>
+
+        <nav class="nav mb-5 md:m-0 z-50">
             <div class="px-4 mx-auto xl:mx-0 xl:w-8/12 container lg:px-10 2xl:px-28 flex justify-between items-center  transition-all duration-500 relative">
                 <div class="lg:hidden ml-4 z-50">
                     <button class="" id="mBtn">
@@ -20,14 +22,14 @@
                     </button>
                 </div>
                 <div class="hidden lg:flex gap-x-7 transition-all duration-200 text-[#acc2cd] text-xl font-extralight">
-                    <a href="#" class="block text-[#455a64] font-[450]">صفحه اصلی</a>
-                    <a href="#" class="block">راهنما</a>
-                    <a href="#" class="block">تماس با ما</a>
+                    <a href="#" class="block p-4 hover:bg-gray-100 rounded-lg text-[#455a64] font-[450]">صفحه اصلی</a>
+                    <a href="#" class="block p-4 hover:bg-gray-100 rounded-lg">راهنما</a>
+                    <a href="#" class="block p-4 hover:bg-gray-100 rounded-lg">تماس با ما</a>
                 </div>
-                <div class="lg:hidden rounded-xl MC flex-col bg-white absolute right-0 z-30 shadow gap-x-7 gap-y-8 text-[#acc2cd] text-xl font-extralight" id="menu">
-                    <a href="#" class="block rg text-[#455a64] font-[450]">صفحه اصلی</a>
-                    <a href="#" class="block rg">راهنما</a>
-                    <a href="#" class="block rg">تماس با ما</a>
+                <div class="lg:hidden hidden transition-all overflow-hidden duration-300 p-2 translate-y-36 rounded-xl MC flex-col bg-white absolute right-0 z-30 shadow text-[#acc2cd] text-xl font-extralight" id="menu">
+                    <a href="#" class="block transition-all duration-200 p-4 rounded-xl hover:bg-gray-100 rg text-[#455a64] font-[450]">صفحه اصلی</a>
+                    <a href="#" class="block transition-all duration-200 p-4 rounded-xl hover:bg-gray-100 rg">راهنما</a>
+                    <a href="#" class="block transition-all duration-200 p-4 rounded-xl hover:bg-gray-100 rg">تماس با ما</a>
                 </div>
                 <div>
                     <svg width="177" height="50" class="bg-white rounded-xl" viewBox="0 0 177 50" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -581,14 +583,30 @@
             if(MIO) {
                 $("#menu").addClass('MC');
                 $("#menu").removeClass('MO');
+                $("#GraySpace").addClass('hidden');
+                setTimeout(() => {
+                    $("#menu").addClass('hidden');
+                }, 300);
                 MIO = false;
             }
             else {
-                $("#menu").removeClass('MC');
-                $("#menu").addClass('MO');
+                $("#menu").removeClass('hidden');
+                setTimeout(() => {
+                    $("#menu").removeClass('MC');
+                    $("#menu").addClass('MO');
+                    $("#GraySpace").removeClass('hidden');
+                }, 50);
                 MIO = true;
             }
         });
+
+        $("#GraySpace").click(function (e) {
+            $("#menu").addClass('MC');
+            $("#menu").removeClass('MO');
+            $("#GraySpace").addClass('hidden');
+            MIO = false;
+        });
+
     </script>
 </body>
 </html>

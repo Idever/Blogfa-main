@@ -6,11 +6,14 @@
 @tailwind utilities;
 
 @layer components {
+    . {
+
+    }
     .MC {
-        @apply opacity-0 -top-[100vh]
+        @apply opacity-0 w-full mx-auto flex scale-75
     }
     .MO {
-        @apply p-2 px-4 flex w-full opacity-100 top-12
+        @apply flex w-full opacity-100 scale-100
     }
     .DColor {
         @apply bg-[#549eff]
@@ -18,5 +21,8 @@
 
     .nav {
         @apply xl:py-16 xl:bg-transparent xl:backdrop-blur-0 z-50 top-0 sticky xl:static p-2 bg-white bg-opacity-80 backdrop-blur-md
+    }
+    .GraySpace {
+        @apply w-full h-full fixed top-0 bg-[#1235] bg-opacity-75 backdrop-blur-[10px] z-40
     }
 }
